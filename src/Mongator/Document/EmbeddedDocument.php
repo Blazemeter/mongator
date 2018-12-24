@@ -37,7 +37,9 @@ abstract class EmbeddedDocument extends AbstractDocument
 
         if (isset($this->data['embeddedsOne'])) {
             foreach ($this->data['embeddedsOne'] as $name => $embedded) {
+              if ($embedded !== null) {
                 $embedded->setRootAndPath($root, $path.'.'.$name);
+              }
             }
         }
 
