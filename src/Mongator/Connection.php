@@ -10,8 +10,8 @@
  */
 
 namespace Mongator;
-use MongoClient;
 
+use MongoDB\Client as MongoDBClient;
 
 /**
  * Connection.
@@ -141,7 +141,7 @@ class Connection implements ConnectionInterface
     public function getMongo()
     {
         if (null === $this->mongo) {
-			$this->mongo = new MongoClient($this->server, $this->options);
+			$this->mongo = new MongoDBClient($this->server, $this->options);
         }
 
         return $this->mongo;
@@ -153,7 +153,7 @@ class Connection implements ConnectionInterface
     public function getMongoDB()
     {
         if (null === $this->mongoDB) {
-            $this->mongoDB = $this->getMongo()->selectDB($this->dbName);
+            $this->mongoDB = $this->getMongo()->selectDatabase($this->dbName);
         }
 
         return $this->mongoDB;
