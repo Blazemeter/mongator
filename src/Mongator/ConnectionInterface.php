@@ -24,7 +24,7 @@ interface ConnectionInterface
     /**
      * Returns the mongo connection object.
      *
-     * @return \MongoDB\Client The mongo collection object.
+     * @return \MongoClient The mongo collection object.
      *
      * @api
      */
@@ -33,7 +33,7 @@ interface ConnectionInterface
     /**
      * Returns the database object.
      *
-     * @return \MongoDB\Database The database object.
+     * @return \MongoDB The database object.
      *
      * @api
      */

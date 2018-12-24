@@ -153,7 +153,7 @@ class Connection implements ConnectionInterface
     public function getMongoDB()
     {
         if (null === $this->mongoDB) {
-            $this->mongoDB = $this->getMongo()->selectDatabase($this->dbName);
+            $this->mongoDB = $this->getMongo()->selectDB($this->dbName);
         }
 
         return $this->mongoDB;
