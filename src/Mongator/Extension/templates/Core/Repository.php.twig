@@ -243,11 +243,11 @@
 {% if reference.class is defined %}
         $skip = 0;
         do {
-            $cursor = $this->getCollection()->find(array('{{ name }}' => array('$exists' => 1)), array('{{ name }}' => 1))->limit($documentsPerBatch)->skip($skip);
-            $ids = array_unique(array_values(array_map(function ($result) { return $result['{{ name }}']; }, iterator_to_array($cursor))));
+            $cursor = $this->getCollection()->find(['{{ name }}' => ['$exists' => 1]], ['projection' => ['{{ name }}' => 1], 'limit' => $documentsPerBatch, 'skip' => $skip]);
+            $ids = array_values(array_unique(array_values(array_map(function ($result) { return $result['{{ name }}']; }, iterator_to_array($cursor)))));
             if (count($ids)) {
                 $collection = $this->getMongator()->getRepository('{{ reference.class }}')->getCollection();
-                $referenceCursor = $collection->find(array('_id' => array('$in' => $ids)), array('_id' => 1));
+                $referenceCursor = $collection->find(array('_id' => array('$in' => $ids)), array('projection' => ['_id' => 1]));
                 $referenceIds =  array_values(array_map(function ($result) { return $result['_id']; }, iterator_to_array($referenceCursor)));
 
                 if ($idsDiff = array_diff($ids, $referenceIds)) {
@@ -255,7 +255,7 @@
                 }
             }
 
-            $skip += $documentsPerBatch;
+        $skip += $documentsPerBatch;
         } while(count($ids));
 {% endif %}
 {% endfor %}
