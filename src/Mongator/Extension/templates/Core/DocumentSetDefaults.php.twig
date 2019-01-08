@@ -7,10 +7,10 @@
     {
 {% for name, field in config_class.fields %}
 {% if field.default is defined %}
-        if ($this->get{{ name|ucfirst }}() === null) {
+        if ($this->get{{ name|ucfirst }}() === null || !isset($this->data['fields']['{{  name  }}'])) {
             $this->set{{ name|ucfirst }}({{ field.default|var_export }});
         }
-        
+
 {% endif %}
 {% endfor %}
     }
