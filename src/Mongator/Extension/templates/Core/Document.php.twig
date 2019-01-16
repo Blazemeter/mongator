@@ -16,8 +16,11 @@
     /**
      * {@inheritdoc}
      */
-    public function __construct(\Mongator\Mongator $mongator)
+    public function __construct($mongator = null)
     {
+        if ($mongator === null) {
+          $mongator = mandango_get();
+        }
         $this->eventPattern = '{{ config_class.eventPattern }}';
 
         parent::__construct($mongator);
