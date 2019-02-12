@@ -177,7 +177,7 @@ abstract class Repository
      *
      * @param array $criteria The criteria for the query (optional).
      *
-     * @return Query The query.
+     * @return \Mongator\Query\Query The query.
      *
      * @api
      */
