@@ -157,8 +157,11 @@
                             }
                             $q = $q[$name];
                         }
-                        $op = ($saved) ? '$pushAll' : '$set';
-                        $query[$op][$groupRap['path']][] = $q;
+                        if ($saved) {
+                          $query['$push'][$groupRap['path']]['$each'][] = $q;
+                        } else {
+                          $query['$set'][$groupRap['path']][] = $q;
+                        }
                     }
                     foreach ($group->getRemove() as $document) {
                         $rap = $document->getRootAndPath();
