@@ -1148,7 +1148,7 @@ EOF
 
     private function mapArrayKeyWithDefault($array, $key, array $mapCallback, $default)
     {
-        if (array_key_exists($key, $array)) {
+        if ((is_array($array) && array_key_exists($key, $array)) || (is_object($array) && (isset($array[$key])))) {
             return call_user_func($mapCallback, $array[$key]);
         }
 
