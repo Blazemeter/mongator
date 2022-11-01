@@ -13,7 +13,7 @@ namespace Mongator\Benchmarks;
 
 class DeletingEvent extends AthleticEvent
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->simpleDocument = $this->buildSimpleDocument()->save();

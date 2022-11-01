@@ -13,7 +13,7 @@ namespace Mongator\Tests\Logger;
 
 use Mongator\Logger\Time;
 
-class TimeTest extends \PHPUnit_Framework_TestCase
+class TimeTest extends \PHPUnit\Framework\TestCase
 {
     public function testTime()
     {

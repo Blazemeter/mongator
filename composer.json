@@ -27,11 +27,11 @@
 	"require" : {
 		"php" : "^8",
 		"mongator/mondator" : "dev-US45860-php8",
-		"symfony/event-dispatcher" : "^2.8||~3.0||~4.0||^5.4",
+		"symfony/event-dispatcher" : "^5.4",
 		"mongodb/mongodb" : "^1.1"
 	},
 	"require-dev" : {
-		"athletic/athletic" : "dev-master"
+    "phpunit/phpunit": "9.5.25"
 	},
 	"suggest" : {
 		"ext-apc" : "Allow caching on APC",

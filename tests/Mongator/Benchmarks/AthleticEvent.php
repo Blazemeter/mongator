@@ -61,7 +61,7 @@ abstract class AthleticEvent extends Base
         }
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         foreach ($this->mongator->getAllRepositories() as $repository) {
