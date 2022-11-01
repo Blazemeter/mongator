@@ -50,7 +50,7 @@ abstract class Query implements \Countable, \IteratorAggregate
 
         $hash = $this->repository->getDocumentClass();
 
-        if (version_compare(PHP_VERSION, '5.3.6', '=>')) {
+        if (version_compare(PHP_VERSION, '5.3.6', '>=')) {
             $debugBacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
         } else {
             $debugBacktrace = debug_backtrace();
