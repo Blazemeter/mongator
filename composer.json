@@ -21,7 +21,7 @@
 	],
 	"repositories" : [{
 			"type" : "git",
-			"url" : "git@github.com:Blazemeter/mondator.git"
+			"url" : "https://github.com/Blazemeter/mondator.git"
 		}
 	],
 	"require" : {
