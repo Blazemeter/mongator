@@ -19,7 +19,7 @@
                 $this->get{{ name | ucfirst }}();
                 if (
                     ( is_object($value) && $value == $this->data['fields']['{{ name }}'] ) ||
-                    ( !is_object($value) && $value === $this->data['fields']['{{ name }}'] )
+                    ( !is_object($value) && $value === ($this->data['fields']['{{ name }}'] ?? null) )
                 ) {
                     return $this;
                 }
@@ -33,7 +33,7 @@
             }
         } elseif (
             ( is_object($value) && $value == $this->data['fields']['{{ name }}'] ) ||
-            ( !is_object($value) && $value === $this->data['fields']['{{ name }}'] )
+            ( !is_object($value) && $value === ($this->data['fields']['{{ name }}'] ?? null))
         ) {
             return $this;
         }
