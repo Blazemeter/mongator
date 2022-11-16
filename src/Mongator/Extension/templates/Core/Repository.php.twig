@@ -136,7 +136,7 @@
                 foreach ($a as $oid => $data) {
                     $document = $inserts[$oid];
 
-                    $document->setId($data['_id']);
+                    $document->setId($data['_id'] ?? null);
                     $document->setIsNew(false);
                     $document->clearModified();
                     $identityMap[(string) $data['_id']] = $document;
@@ -170,7 +170,7 @@
 
                 $collection->insertOne($data);
 
-                $document->setId($data['_id']);
+                $document->setId($data['_id'] ?? null);
                 $document->setIsNew(false);
                 $document->clearModified();
                 $identityMap[(string) $data['_id']] = $document;
