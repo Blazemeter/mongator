@@ -29,64 +29,69 @@ class IdentityMap implements IdentityMapInterface
      *
      * @api
      */
-    public function __construct()
-    {
-        $this->documents = array();
+    public function __construct() {
+        $this->documents = [];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function set($id, Document $document)
-    {
-        $this->documents[(string) $id] = $document;
+    public function set($id, Document $document) {
+        $this->documents[$this->serialize($id)] = $document;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function has($id)
-    {
-        return isset($this->documents[(string) $id]);
+    public function has($id) {
+        return isset($this->documents[$this->serialize($id)]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function get($id)
-    {
-        return $this->documents[(string) $id];
+    public function get($id) {
+        return $this->documents[$this->serialize($id)];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function all()
-    {
+    public function all() {
         return $this->documents;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function &allByReference()
-    {
+    public function &allByReference() {
         return $this->documents;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function remove($id)
-    {
-        unset($this->documents[(string) $id]);
+    public function remove($id) {
+        unset($this->documents[$this->serialize($id)]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function clear()
-    {
-        $this->documents = array();
+    public function clear() {
+        $this->documents = [];
+    }
+
+    /**
+     * @param $id
+     *
+     * @return string
+     */
+    public function serialize($id) {
+        if (is_array($id) || (is_object($id) && !($id instanceof \MongoId))) {
+            $id = md5(serialize($id));
+        }
+
+        return (string) $id;
     }
 }
