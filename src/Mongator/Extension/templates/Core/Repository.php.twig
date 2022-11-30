@@ -175,8 +175,8 @@
                 $document->setId($data['_id'] ?? null);
                 $document->setIsNew(false);
                 $document->clearModified();
-                if (!is_array($data['_id'])) {
-                    $identityMap[(string) $data['_id']] = $document;
+                if (!is_array($data['_id'] ?? null)) {
+                    $identityMap[(string) ($data['_id'] ?? null)] = $document;
                 }
 
 {% if config_class._has_groups %}
