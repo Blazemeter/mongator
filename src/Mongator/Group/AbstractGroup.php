@@ -102,18 +102,31 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    public function remove($documents)
+    public function remove($documents, $all = true)
     {
         if (!is_array($documents)) {
             $documents = array($documents);
         }
-
-        $remove =& $this->getArchive()->getByRef('remove', array());
-        foreach ($documents as $document) {
-            $remove[] = $document;
+        if ($all) {
+            $this->addToRemove($documents);
+        }
+        else {
+            $docToRemove = $documents[0];
+            $allDocs = $this->all();
+            $docsToKeep = self::unsetValue($allDocs, $docToRemove->getId());
+            $this->addToRemove($allDocs);
+            $this->add($docsToKeep);
         }
     }
-
+    public static function unsetValue(array $array, $value): array
+    {
+        foreach ($array as $key => $val) {
+            if ($val->getId() == $value) {
+                unset($array[$key]);
+            }
+        }
+        return $array;
+    }
     /**
      * Clear all documents
      *
@@ -313,5 +326,16 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
         }
         $this->clearAdd();
         $this->clearRemove();
+    }
+
+    /**
+     * @param $documents
+     */
+    private function addToRemove($documents)
+    {
+        $remove =& $this->getArchive()->getByRef('remove', array());
+        foreach ($documents as $document) {
+            $remove[] = $document;
+        }
     }
 }
