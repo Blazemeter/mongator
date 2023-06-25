@@ -17,12 +17,12 @@ abstract class Cache extends TestCase
 {
     protected $cache;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->cache = $this->getCacheDriver();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if ( $this->cache ) $this->cache->clear();
         parent::tearDown();

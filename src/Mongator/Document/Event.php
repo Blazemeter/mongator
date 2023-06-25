@@ -12,7 +12,7 @@
 
 namespace Mongator\Document;
 
-use Symfony\Component\EventDispatcher\Event as BaseEvent;
+use Symfony\Contracts\EventDispatcher\Event as BaseEvent;
 
 /**
  * The Event class for documents.

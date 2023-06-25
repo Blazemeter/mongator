@@ -14,11 +14,11 @@ namespace Mongator\Tests\Logger;
 use Mongator\Logger\LoggableMongo;
 use Mongator\Logger\LoggableMongoDB;
 
-class LoggableMongoDBTest extends \PHPUnit_Framework_TestCase
+class LoggableMongoDBTest extends \PHPUnit\Framework\TestCase
 {
     protected $log;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!class_exists('Mongo')) {
             $this->markTestSkipped('Mongo is not available.');

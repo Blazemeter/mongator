@@ -30,7 +30,7 @@ class Core extends Extension
     /**
      * {@inheritdoc}
      */
-    protected function setup()
+    protected function setUp(): void
     {
         $this->addRequiredOptions(array(
             'metadata_factory_class',

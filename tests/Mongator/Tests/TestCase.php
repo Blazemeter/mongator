@@ -19,8 +19,8 @@ use Mongator\Archive;
 use Mongator\Id\IdGeneratorContainer;
 use Mongator\Type\Container as TypeContainer;
 
-class TestCase extends \PHPUnit_Framework_TestCase
-{
+class TestCase extends \PHPUnit\Framework\TestCase
+{ 
     protected static $staticConnection;
     protected static $staticGlobalConnection;
     protected static $staticMongator;
@@ -38,7 +38,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     protected $mongo;
     protected $db;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!class_exists('MongoClient')) {
             $this->markTestSkipped('MongoClient is not available.');
@@ -82,7 +82,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
         }
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         IdGeneratorContainer::reset();
         TypeContainer::reset();

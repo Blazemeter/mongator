@@ -127,7 +127,7 @@ abstract class EmbeddedDocument extends AbstractDocument
     public function isFieldInQuery($field)
     {
         $rap = $this->getRootAndPath();
-        if (!$rap['root']) return false;
+        if (!($rap['root'] ?? null)) return false;
         return $rap['root']->isFieldInQuery($field);
     }
 
@@ -137,7 +137,7 @@ abstract class EmbeddedDocument extends AbstractDocument
     public function loadFull()
     {
         $rap = $this->getRootAndPath();
-        if (!$rap['root']) return false;
+        if (!($rap['root'] ?? null)) return false;
         return $rap['root']->loadFull();
     }
 

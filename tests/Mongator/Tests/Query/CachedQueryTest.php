@@ -16,7 +16,7 @@ class CachedQueryTest extends TestCase
     protected $identityMap;
     protected $query;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

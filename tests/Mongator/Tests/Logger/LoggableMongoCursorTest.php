@@ -19,7 +19,7 @@ class LoggableMongoCursorTest extends TestCase
 {
     protected $log;
     
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!class_exists('Mongo')) {
             $this->markTestSkipped('Mongo is not available.');

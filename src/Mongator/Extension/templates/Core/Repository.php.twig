@@ -136,10 +136,12 @@
                 foreach ($a as $oid => $data) {
                     $document = $inserts[$oid];
 
-                    $document->setId($data['_id']);
+                    $document->setId($data['_id'] ?? null);
                     $document->setIsNew(false);
                     $document->clearModified();
-                    $identityMap[(string) $data['_id']] = $document;
+                    if (!is_array($data['_id'])) {
+                        $identityMap[(string) $data['_id']] = $document;
+                    }
 {% if config_class._has_groups %}
                     $document->resetGroups();
 {% endif %}
@@ -170,10 +172,12 @@
 
                 $collection->insertOne($data);
 
-                $document->setId($data['_id']);
+                $document->setId($data['_id'] ?? null);
                 $document->setIsNew(false);
                 $document->clearModified();
-                $identityMap[(string) $data['_id']] = $document;
+                if (!is_array($data['_id'] ?? null)) {
+                    $identityMap[(string) ($data['_id'] ?? null)] = $document;
+                }
 
 {% if config_class._has_groups %}
                 $document->resetGroups();
