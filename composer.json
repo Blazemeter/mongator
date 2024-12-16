@@ -1,51 +1,55 @@
 {
-	"name" : "mongator/mongator",
-	"type" : "library",
-	"description" : "Mongator is a easy, powerful and ultrafast ODM for PHP and MongoDB. (forked from Mandango project)",
-	"keywords" : [
-		"odm",
-		"mongodb"
-	],
-	"homepage" : "http://mongator.com",
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "Máximo Cuadros",
-			"email" : "mcuadros@gmail.com"
-		}, {
-			"name" : "Daniel Ripollés",
-			"email" : "daniel@yunait.com"
-		}, {
-			"name" : "Pablo Díez",
-			"email" : "pablodip@gmail.com"
-		}
-	],
-	"repositories" : [{
-			"type" : "git",
-			"url" : "https://github.com/Blazemeter/mondator.git"
-		}
-	],
-	"require" : {
-		"php" : "^8",
-		"mongator/mondator" : "dev-US45860-php8",
-		"symfony/event-dispatcher" : "^5.4",
-		"mongodb/mongodb" : "^1.1"
-	},
-	"require-dev" : {
-    "phpunit/phpunit": "9.5.25"
-	},
-	"suggest" : {
-		"ext-apc" : "Allow caching on APC",
-		"ext-redis" : "Allow caching on Redis",
-		"ext-memcached" : "Allow caching on Memcached"
-	},
-	"autoload" : {
-		"psr-0" : {
-			"Mongator\\" : "src/"
-		}
-	},
-	"extra" : {
-		"branch-alias" : {
-			"dev-master" : "2.x-dev"
-		}
-	}
+    "name": "mongator/mongator",
+    "type": "library",
+    "description": "Mongator is a easy, powerful and ultrafast ODM for PHP and MongoDB. (forked from Mandango project)",
+    "keywords": [
+        "odm",
+        "mongodb"
+    ],
+    "homepage": "http://mongator.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Máximo Cuadros",
+            "email": "mcuadros@gmail.com"
+        },
+        {
+            "name": "Daniel Ripollés",
+            "email": "daniel@yunait.com"
+        },
+        {
+            "name": "Pablo Díez",
+            "email": "pablodip@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/Blazemeter/mondator.git"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "mongator/mondator": "dev-master",
+        "symfony/event-dispatcher": "^5.4",
+        "mongodb/mongodb": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "suggest": {
+        "ext-apc": "Allow caching on APC",
+        "ext-redis": "Allow caching on Redis",
+        "ext-memcached": "Allow caching on Memcached"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mongator\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.x-dev"
+        }
+    }
 }

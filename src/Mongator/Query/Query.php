@@ -546,7 +546,7 @@ abstract class Query implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->all());
     }
@@ -574,7 +574,7 @@ abstract class Query implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    public function count()
+    public function count(): int
     {
     	$collection = $this->getRepository()->getCollection();
     	return $collection->count($this->criteria);
