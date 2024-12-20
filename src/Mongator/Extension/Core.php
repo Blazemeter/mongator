@@ -19,7 +19,6 @@ use Mandango\Mondator\Output;
 use Mongator\Id\IdGeneratorContainer;
 use Mongator\Type\Container as TypeContainer;
 use Mongator\Twig\Mongator as MongatorTwig;
-use Twig\Environment;
 
 /**
  * Core extension.
@@ -1120,7 +1119,7 @@ EOF
         $this->definitions['metadata_factory']->addProperty($property);
     }
 
-    protected function configureTwig(Environment $twig)
+    protected function configureTwig(\Twig_Environment $twig)
     {
         $twig->addExtension(new MongatorTwig());
     }
