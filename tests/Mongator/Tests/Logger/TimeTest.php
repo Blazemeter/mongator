@@ -17,10 +17,6 @@ class TimeTest extends \PHPUnit\Framework\TestCase
 {
     public function testTime()
     {
-        if (!class_exists('Mongator\Logger\Time')) {
-            $this->markTestSkipped('Mongator\Logger\Time is not available.');
-        }
-
         $time = new Time();
         $time->start();
 

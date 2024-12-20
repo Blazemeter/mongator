@@ -13,22 +13,19 @@ namespace Mongator\Twig;
 
 use Mongator\Id\IdGeneratorContainer;
 use Mongator\Type\Container as TypeContainer;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
-use Twig\TwigFunction;
 
 /**
  * The "Mongator" extension for twig (used in the Core Mondator extension).
  *
  * @author Pablo Díez <pablodip@gmail.com>
  */
-class Mongator extends AbstractExtension
+class Mongator extends \Twig_Extension
 {
     public function getFilters()
     {
         return array(
-            'ucfirst'    => new TwigFilter('ucfirst', 'ucfirst'),
-            'var_export' => new TwigFilter('var_export', function($string) {
+            'ucfirst'    => new \Twig_SimpleFilter('ucfirst', 'ucfirst'),
+            'var_export' => new \Twig_SimpleFilter('var_export', function($string) {
                 return var_export($string, true);
             })
         );
@@ -38,15 +35,15 @@ class Mongator extends AbstractExtension
     {
         return array(
             'Mongator_id_generator' =>
-                new TwigFunction('Mongator_id_generator', array($this, 'MongatorIdGenerator')),
+                new \Twig_SimpleFunction('Mongator_id_generator', array($this, 'MongatorIdGenerator')),
             'Mongator_id_generator_to_mongo' =>
-                new TwigFunction('Mongator_id_generator_to_mongo', array($this, 'MongatorIdGeneratorToMongo')),
+                new \Twig_SimpleFunction('Mongator_id_generator_to_mongo', array($this, 'MongatorIdGeneratorToMongo')),
             'Mongator_id_generator_to_php' =>
-                new TwigFunction('Mongator_id_generator_to_php', array($this, 'MongatorIdGeneratorToPHP')),
+                new \Twig_SimpleFunction('Mongator_id_generator_to_php', array($this, 'MongatorIdGeneratorToPHP')),
             'Mongator_type_to_mongo' =>
-                new TwigFunction('Mongator_type_to_mongo', array($this, 'MongatorTypeToMongo')),
+                new \Twig_SimpleFunction('Mongator_type_to_mongo', array($this, 'MongatorTypeToMongo')),
             'Mongator_type_to_php' =>
-                new TwigFunction('Mongator_type_to_php', array($this, 'MongatorTypeToPHP')),
+                new \Twig_SimpleFunction('Mongator_type_to_php', array($this, 'MongatorTypeToPHP')),
         );
     }
 

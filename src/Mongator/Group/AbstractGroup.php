@@ -230,7 +230,7 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    public function getIterator(): \Traversable
+    public function getIterator()
     {
         return new \ArrayIterator($this->all());
     }
@@ -297,7 +297,7 @@ abstract class AbstractGroup implements \Countable, \IteratorAggregate
      *
      * @api
      */
-    public function count(): int
+    public function count()
     {
         return count($this->all());
     }

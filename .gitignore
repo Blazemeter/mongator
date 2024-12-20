@@ -1,5 +1,6 @@
 *.swp
 package.xml
+composer.lock
 phpunit.xml
 .phpunit.result.cache
 /tests/model_no_namespaced/Base/
